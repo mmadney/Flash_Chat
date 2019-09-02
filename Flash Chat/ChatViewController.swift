@@ -107,8 +107,16 @@ class ChatViewController: UIViewController {
     @IBAction func logOutPressed(_ sender: AnyObject) {
         
         //TODO: Log out the user and send them back to WelcomeViewController
+        do {
+            try FIRAuth.auth()?.signOut()
+        } catch  {
+            print("error while signing out")
+        }
         
-        
+        guard (navigationController?.popToRootViewController(animated: true)) != nil else {
+            print("no view controllers pop off")
+            return
+        }
     }
     
 
