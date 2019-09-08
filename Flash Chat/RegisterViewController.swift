@@ -30,14 +30,14 @@ class RegisterViewController: UIViewController {
     @IBAction func registerPressed(_ sender: AnyObject) {
          //TODO: Set up a new user on our Firbase database
         FIRAuth.auth()?.createUser(withEmail: emailTextfield.text!, password: passwordTextfield.text!, completion: { (user, err) in
-            if err != nil {
+            if err != nil
+            {
                 print(err!)
             }
             else
             {
                 print("Registration Sucessful")
                 self.performSegue(withIdentifier: "goToChat", sender: nil)
-                
             }
         })
         
